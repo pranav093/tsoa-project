@@ -30,4 +30,10 @@ export class UsersController extends Controller {
         new UsersService().create(requestBody);
         return;
     }
+
+    @Get()
+    public async getAllUser(): Promise<User[]> {
+        this.setStatus(200);
+        return new UsersService().getAll();
+    }
 }

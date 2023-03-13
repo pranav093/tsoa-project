@@ -21,4 +21,20 @@ export class UsersService {
       ...userCreationParams,
     };
   }
+
+  public getAll(): User[] {
+    return [{
+      id: 4480,
+      email: "jane@doe.com",
+      name: "Jane Doe",
+      status: "Happy",
+      phoneNumbers: [],
+    }, {
+      id: 4470,
+      email: "test@doe.com",
+      name: "Test User",
+      status: "Happy",
+      phoneNumbers: [],
+    }]
+  }
 }
