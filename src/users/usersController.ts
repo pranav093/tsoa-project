@@ -11,6 +11,11 @@ import {
 import { User } from "./user";
 import { UsersService, UserCreationParams } from "./usersService";
 
+interface ValidateErrorJSON {
+    message: "Validation failed";
+    details: { [name: string]: unknown };
+  }
+
 @Route("users")
 export class UsersController extends Controller {
     @Get("{userId}")

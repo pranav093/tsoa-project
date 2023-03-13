@@ -41,6 +41,28 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"ValidateErrorJSON": {
+				"properties": {
+					"message": {
+						"type": "string",
+						"enum": [
+							"Validation failed"
+						],
+						"nullable": false
+					},
+					"details": {
+						"properties": {},
+						"additionalProperties": {},
+						"type": "object"
+					}
+				},
+				"required": [
+					"message",
+					"details"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"Pick_User.email-or-name-or-phoneNumbers_": {
 				"properties": {
 					"email": {
@@ -126,6 +148,16 @@
 				"responses": {
 					"201": {
 						"description": "Created"
+					},
+					"422": {
+						"description": "Validation Failed",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ValidateErrorJSON"
+								}
+							}
+						}
 					}
 				},
 				"security": [],
